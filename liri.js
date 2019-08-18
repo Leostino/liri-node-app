@@ -18,15 +18,21 @@ const Spotify = require("node-spotify-api");
 
 const keys = require("./keys");
 
+
 // declaring variables needed
 
 let songName;
 
 let movieName;
 
+
+
 // calling the liriApp() function. The engine of the app
 
 liriApp();
+
+
+
 
 // creating the engine of the app liriApp() function
 
@@ -94,6 +100,7 @@ function liriApp() {
 
 
 
+
 // spotifySong() function
 
 function spotifySong(songName) {
@@ -141,6 +148,7 @@ function spotifySong(songName) {
     });
    
 }
+
 
 
 
@@ -200,6 +208,9 @@ function movieThis(movieName) {
     })
     
 }
+
+
+
 
 
 // doSay() function to do whatever it reads from random.txt file
