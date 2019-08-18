@@ -18,114 +18,233 @@ const Spotify = require("node-spotify-api");
 
 const keys = require("./keys");
 
+// declaring variables needed
+
 let songName;
 
 let movieName;
 
+// calling the liriApp() function. The engine of the app
 
-spotifySong(songName);
+liriApp();
 
-movieThis(movieName);
+// creating the engine of the app liriApp() function
 
-// spotify_song() function with the user input in the parameter
+function liriApp() {
 
-function spotifySong(songName) {
+    // if statement to check user's search input or arguments for songs
+    // if the first argument is spotify-this-song and no second argument
 
-    // grab spotify id and key from keys.js and assign them a variable "spotify"
+  if ((process.argv[2] === "spotify-this-song" ) && (!process.argv[3])) {
 
-    let spotify = new Spotify(keys.spotify)
+      // choose this song as default
 
-    let playSong = process.argv[2];
-
-    // grab the users song from the 4th argument
+       songName = "All the Small Things";
     
-    songName = process.argv[3];
+       // call the spotifySong
 
-    // if no song is provided
+       spotifySong(songName);
 
-    if((playSong === "spotify-this-song") && (!songName)) {
+       // if the first argument is spotify-this-song and there's second argument
 
-        // send a default song to api
+    }else if((process.argv[2] === "spotify-this-song") && (process.argv[3])) {
 
-        spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, data) {
-            
-        if (err) {
-              return console.log('Error occurred: ' + err);
-            }
-           
-          console.log(`
-          Artist: ${data.tracks.items[2].album.artists[0].name}
-          Song: ${data.tracks.items[2].album.name}
-          Preview: ${data.tracks.items[2].album.external_urls.spotify}
-          Album: ${data.tracks.items[2].album.name}
-          Release Date: ${data.tracks.items[2].album.release_date}
-          `);
+       // make the second argument the song's name
 
-        });
-       
-          // else
-       
-    }else if((playSong === "spotify-this-song") && (songName)){
-        spotify.search({ type: 'track', query: userSong }, function(err, data) {
-            
-            if (err) {
-                  return console.log('Error occurred: ' + err);
-                }
-               
-              console.log(`
-              Artist: ${data.tracks.items[2].album.artists[0].name}
-              Song: ${data.tracks.items[2].album.name}
-              Preview: ${data.tracks.items[2].album.external_urls.spotify}
-              Album: ${data.tracks.items[2].album.name}
-              Release Date: ${data.tracks.items[2].album.release_date}
-              `);
-    
-            });
+       songName = process.argv[3];
+
+       // spotify the song
+
+        spotifySong(songName);
     }
+
+
+    // if statement to check user's search input or arguments for movies
+    // if the first argument is movie-this and no second argument
+
+    if ((process.argv[2] === "movie-this") && (!process.argv[3])) {
+
+        // choose this movie as default
+
+        movieName = "remember the titans";
+
+        // call the movieThis() function
+
+        movieThis(movieName);
+
+        // if the first argument is movie-this and there's second argument
+
+    }else if((process.argv[2] === "movie-this") && (process.argv[3])) {
+
+        // make the second argument the movie's name
+
+        movieName = process.argv[3];
+
+        // call the movieThis() function
+
+        movieThis(movieName);
+    }
+
+    // calling the do-whatever-it-says doSay() function
+    
+    doSay();
+
 }
 
 
 
 
-function movieThis(movieName) {
+// spotifySong() function
 
-    let playMovie = process.argv[2];
+function spotifySong(songName) {
 
-    movieName = process.argv[3];
+    // grab spotify id and key from keys.js and assign them a variable "spotify"
 
-    if((playMovie === "movie-this") && (!movieName)) {
+    let spotify = new Spotify(keys.spotify)    
 
-    axios.get("http://www.omdbapi.com/?t=remember+the+titans&y=&plot=short&apikey=trilogy").then(
-        function(response) {
-            if(response) {
-                console.log(`
-                Title of movie: ${response.data.Title}
-                Year: ${response.data.Year}
-                Imdb Rating: ${response.data.imdbRating}
-                Rotten Tomatoes Rating: ${response.data.Ratings[1].Value}
-                Country: ${response.data.Country}
-                Language: ${response.data.Language}
-                Movie Description: ${response.data.Plot}
-                Actors: ${response.data.Actors}
-               `);
-            }   
-        })
-    }else if((playMovie === "movie-this") && (movieName)) {
-        const queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
-        axios.get(queryUrl).then(function(response) {
-            if(response) {
-                console.log(`
-                Title of movie: ${response.data.Title}
-                Year: ${response.data.Year}
-                Imdb Rating: ${response.data.imdbRating}
-                Rotten Tomatoes Rating: ${response.data.Ratings[1].Value}
-                Country: ${response.data.Country}
-                Language: ${response.data.Language}
-                Movie Description: ${response.data.Plot}
-                Actors: ${response.data.Actors}
-               `);
-            }
-            })
+    // send user's song to spotify api
+
+    spotify.search({ type: 'track', query: songName }, function(err, data) {
+             
+    if (err) {
+
+        // display error, if there's error 
+                
+        return console.log('Error occurred: ' + err);
+    
     }
+               
+    // if no error, display information about the song
+    
+    console.log(`
 
+    Artist: ${data.tracks.items[2].album.artists[0].name}
+
+    #####################################################
+
+    Song: ${data.tracks.items[2].album.name}
+
+    #####################################################
+      
+    Preview: ${data.tracks.items[2].album.external_urls.spotify}
+
+    #####################################################
+              
+    Album: ${data.tracks.items[2].album.name}
+
+    #####################################################
+
+    Release Date: ${data.tracks.items[2].album.release_date}
+
+    `);
+    
+    });
+   
+}
+
+
+
+//  movieThis() function
+
+function movieThis(movieName) {  
+
+    // save user's movie with the url in a variable
+
+    const queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+        
+    // axios call and response to open movie api
+    
+    axios.get(queryUrl).then(function(response) {
+
+        // if there's response or callback from the api
+
+        if(response) {
+
+            // display information about the movie
+                
+            console.log(`
+
+            Title of movie: ${response.data.Title}
+
+            ###########################################
+
+            Year: ${response.data.Year}
+
+            ###########################################
+
+            Imdb Rating: ${response.data.imdbRating}
+
+            ###########################################
+
+            Rotten Tomatoes Rating: ${response.data.Ratings[1].Value}
+
+            ###########################################
+
+            Country: ${response.data.Country}
+
+            ###########################################
+
+            Language: ${response.data.Language}
+
+            ###########################################
+            
+            Movie Description: ${response.data.Plot}
+
+            ###########################################
+            
+            Actors: ${response.data.Actors}
+
+            `);
+        }
+            
+    })
+    
+}
+
+
+// doSay() function to do whatever it reads from random.txt file
+
+function doSay() {
+
+    // read the random.txt file
+    fs.readFile("random.txt", "utf8", function(error, data) {
+
+        if(error) {
+
+            // if error, display error
+
+            console.log(error);
+        }
+
+        // put the information in an array
+
+        let dataArr = data.split(",");
+
+        // if no argument from user and the first data in random.txt is "spotify-this-song"
+
+        if ((!process.argv[2]) && (dataArr[0] === "spotify-this-song")) {
+
+            // let the song's name be the second data in the array
+
+            songName = dataArr[1];
+
+            // call the spotifySong() function
+
+            spotifySong(songName);
+
+            // if no argument and the first data in random.txt is "movie-this"
+
+        }else if((!process.argv[2]) && (dataArr[0] === "movie-this")) {
+
+            // let the movie's name be the second data in the array
+
+            movieName = dataArr[1];
+
+            // call the movieThis() function
+
+            movieThis(movieName);
+        }
+            
+        
+    })
 }
