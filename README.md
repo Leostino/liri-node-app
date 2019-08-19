@@ -64,7 +64,7 @@ Type "node liri.js movie-this movieName" and click enter
 
 
 
-## *Link to github repo*
+## *Link to github repository*
 
 [here's the link to github](https://github.com/Leostino/liri-node-app)
 
