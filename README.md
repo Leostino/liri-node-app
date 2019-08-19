@@ -26,41 +26,41 @@ This is a working app that can do 3 things
 
 To do any of these 3 things, the app needs an input from the user. What the user types, determines which function or action the app performs.
 
-*do-whatever-it-says*
+### *do-whatever-it-says*
 
 This is like the default function of the app, when the user just runs the app without passing any arguments. To get this feature, the user just needs to run the app, 
 Type "node liri.js" and click enter.
 Once the user runs this code, the app reads the random.txt file and executes whatever action written in the file - either spotify a song or displays a movie's details.
 
-[here's a link to do-whatever-it-says](images/doSay.png)
+[screenshot link to do-whatever-it-says](images/doSay.png)
 
 
-*spotify-this-song*
+### *spotify-this-song*
 
 This feature is to spotify songs. For this feature to work the user must pass in arguments when running the app.
 Type "node liri.js spotify-this-song" and click enter
 However this command will spotify a default song(All the small things) from the app and display to the user
 
-[here's a link to spotify default song](images/justSpotify.png)
+[screenshot link to spotify default song](images/justSpotify.png)
 
 To spotify their songs, the user will have to type in the name of the song they want to spotify after spotify-this-song.
 Type "node liri.js spotify-this-song songName" and click enter
 
-[here's a link to spotify user's song](images/spotifySong.png)
+[screenshot link to spotify user's song](images/spotifySong.png)
 
 
-*movie-this*
+### *movie-this*
 
 This feature searches for movies and displays information about that movie to the user. Just like the spotify-this-song, for movie-this to work the user must pass in arguments while running the app.
 Type "node liri.js movie-this" and click enter
 However this command will display a default movie's information(remember the titans) to the user
 
-[here's the link to default movie](images/justMovie.png)
+[screenshot link to default movie](images/justMovie.png)
 
 To search for specific movies, the user will type the name of the movie after the movie-this keyword.
 Type "node liri.js movie-this movieName" and click enter
 
-[here's the link to user's movie](images/movieThis.png)
+[screenshot link to user's movie](images/movieThis.png)
 
 
 
