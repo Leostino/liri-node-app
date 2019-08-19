@@ -66,31 +66,25 @@ Type "node liri.js movie-this movieName" and click enter
 
 ## *Link to github repository*
 
-[here's the link to github](https://github.com/Leostino/liri-node-app)
+[github repository](https://github.com/Leostino/liri-node-app)
 
 
 
 ## *Technologies*
 
-1. Spotify api package for spotify-this-song feature
+1. Spotify api package for spotify-this-song feature [node-spotify-api package](https://www.npmjs.com/package/node-spotify-api)
 
-[node-spotify-api package](https://www.npmjs.com/package/node-spotify-api)
-
-2. Axios package for movie-this feature
-
-[axios package](npm-install-axios)
+2. Axios package for movie-this feature [axios package](npm-install-axios)
 
 3. File system(fs) package to read the file random.txt and also write to log.txt
 
-4. `dotenv` package used to access the api keys stored in `.env` file. `.env` is one of the files in the `.gitignore` folder that's not uploaded to the repository. This is a security feature because it keeps api key's information hidden from the public
-
-[dotenv package](npm-install-dotenv)
+4. `dotenv` package used to access the api keys stored in `.env` file. `.env` is one of the files in the `.gitignore` folder that's not uploaded to the repository. This is a security feature because it keeps api key's information hidden from the public [dotenv package](npm-install-dotenv)
 
 5. Javascript require() to link all the packages and features together.
 
 6. Git and Github to save and track different versions of the app
 
-[here's the github repository](https://github.com/Leostino/liri-node-app)
+[github repository](https://github.com/Leostino/liri-node-app)
 
 
 
