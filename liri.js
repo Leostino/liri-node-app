@@ -111,43 +111,69 @@ function spotifySong(songName) {
 
     // send user's song to spotify api
 
-    spotify.search({ type: 'track', query: songName }, function(err, data) {
+    spotify.search({ type: 'track', query: songName }, function(error, data) {
              
-    if (err) {
+        if (error) {
 
-        // display error, if there's error 
+          // display error, if there's error 
                 
-        return console.log('Error occurred: ' + err);
+          return console.log('Error occurred: ' + error);
     
-    }
+        }
                
-    // if no error, display information about the song
-    
-    console.log(`
+        // if no error, display information about the song
 
-    Artist: ${data.tracks.items[2].album.artists[0].name}
+        let songDetails = `
+       #######################################################################################
 
-    #####################################################
+        Artist: ${data.tracks.items[2].album.artists[0].name}
 
-    Song: ${data.tracks.items[2].album.name}
+       #######################################################################################
 
-    #####################################################
+       Song: ${data.tracks.items[2].album.name}
+
+       #######################################################################################
       
-    Preview: ${data.tracks.items[2].album.external_urls.spotify}
+       Preview: ${data.tracks.items[2].album.external_urls.spotify}
 
-    #####################################################
+       #######################################################################################
               
-    Album: ${data.tracks.items[2].album.name}
+       Album: ${data.tracks.items[2].album.name}
 
-    #####################################################
+       ######################################################################################
 
-    Release Date: ${data.tracks.items[2].album.release_date}
+       Release Date: ${data.tracks.items[2].album.release_date}
 
-    `);
+       ######################################################################################
+
+       `;
     
+       console.log(songDetails);
+
+       // update log.txt file with details of the song
+ 
+
+       fs.appendFile("log.txt", songDetails, function(error) {
+
+            if(error) {
+
+             console.log(error);
+            }
+
+            console.log(`
+            ##################################################################################            
+            
+            log.txt file was updated with details of the song
+            
+            ##################################################################################
+            `);
+    
+        });
+
     });
-   
-}
+
+} 
+
 
 
 
@@ -169,45 +195,73 @@ function movieThis(movieName) {
         if(response) {
 
             // display information about the movie
-                
-            console.log(`
+
+            let movieDetails = `
+            ###############################################################################
 
             Title of movie: ${response.data.Title}
 
-            ###########################################
+            ###############################################################################
 
             Year: ${response.data.Year}
 
-            ###########################################
+            ###############################################################################
 
             Imdb Rating: ${response.data.imdbRating}
 
-            ###########################################
+            ###############################################################################
 
             Rotten Tomatoes Rating: ${response.data.Ratings[1].Value}
 
-            ###########################################
+            ###############################################################################
 
             Country: ${response.data.Country}
 
-            ###########################################
+            ###############################################################################
 
             Language: ${response.data.Language}
 
-            ###########################################
+            ###############################################################################
             
             Movie Description: ${response.data.Plot}
 
-            ###########################################
+            ###############################################################################
             
             Actors: ${response.data.Actors}
 
-            `);
+            ###############################################################################
+
+            `;
+                
+            console.log(movieDetails);
+
+            // update log.txt file with details of the movie
+
+        
+
+            fs.appendFile("log.txt", movieDetails, function(error) {
+                if(error) {
+                    console.log(error);
+                }
+
+                console.log(`
+                #############################################################################
+                
+                log.txt file was updated with details of the movie
+                
+                #############################################################################
+                `);
+
+                
+            })
         }
             
     })
     
 }
+
+
+
 
 
 
