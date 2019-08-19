@@ -26,7 +26,7 @@ This is a working app that can do 3 things
 
 To do any of these 3 things, the app needs an input from the user. What the user types, determines which function or action the app performs.
 
-1. do-whatever-it-says
+*do-whatever-it-says*
 
 This is like the default function of the app, when the user just runs the app without passing any arguments. To get this feature, the user just needs to run the app, 
 Type "node liri.js" and click enter.
@@ -35,7 +35,7 @@ Once the user runs this code, the app reads the random.txt file and executes wha
 [here's a link to do-whatever-it-says](images/doSay.png)
 
 
-2. spotify-this-song
+*spotify-this-song*
 
 This feature is to spotify songs. For this feature to work the user must pass in arguments when running the app.
 Type "node liri.js spotify-this-song" and click enter
@@ -49,7 +49,7 @@ Type "node liri.js spotify-this-song songName" and click enter
 [here's a link to spotify user's song](images/spotifySong.png)
 
 
-3. movie-this
+*movie-this*
 
 This feature searches for movies and displays information about that movie to the user. Just like the spotify-this-song, for movie-this to work the user must pass in arguments while running the app.
 Type "node liri.js movie-this" and click enter
