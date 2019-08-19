@@ -82,9 +82,7 @@ Type "node liri.js movie-this movieName" and click enter
 
 5. Javascript require() to link all the packages and features together.
 
-6. Git and Github to save and track different versions of the app
-
-[github repository](https://github.com/Leostino/liri-node-app)
+6. Git and Github to save and track different versions of the app [github repository](https://github.com/Leostino/liri-node-app)
 
 
 
