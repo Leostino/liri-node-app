@@ -78,10 +78,10 @@ Type "node liri.js movie-this movieName" and click enter
 
 3. I used File system(fs) package to read from the text file random.txt and also write or log       every activities of the app in log.txt file.
 
-4. [dotenv package](npm-install-dotenv) was used to access the api keys stored in `.env` file.      `.env` is one of the files in the `.gitignore` folder that's not uploaded to the repository.     This is a security feature because it keeps api key's information hidden from the public
+4. [dotenv package](npm-install-dotenv) was used to access the api keys stored in `.env` file.      `.env` is one of the files in the `.gitignore` folder that's not uploaded to the repository.     This is a security feature because it keeps api key information hidden from the public
 
 5. I used Javascript to link all the packages and features together (javascript's require()).
-   I created 4 functions, for the 3 features of the app and 1 for the engine of the app.
+   I created 4 functions, 3 for the features of the app and 1 for the engine of the app.
 
 6. Git and Github to save and track different versions of the app [github repository](https://github.com/Leostino/liri-node-app)
 
