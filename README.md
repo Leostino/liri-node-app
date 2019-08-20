@@ -2,24 +2,24 @@
 
 
 
-## *Introduction*
+## Introduction
 
-This liri-node-app is an application that helps users search for both movies and songs in the same app. It helps solve the problem of using 2 to 3 different applications for songs and movies. it is very convenient and easy to use.
+This liri-node-app is a node application that helps users search for both movies and songs in the same app. It helps solve the problem of using 2 to 3 different applications for songs and movies. it is very convenient and easy to use.
 
 
 
-## *Organization*
+## Organization
 
 This app has a good file management and organization, all the files directly associated with the main javascritp file `liri.js`, are placed in same folder except the screenshot images arranged in images folder.
 The api keys and information are stored in variables in `.env` file, which is one of the files included in the `.gitignore` file. This means the api keys and other information are not pushed along with other files to the repo. The process.env property is used to access the api keys variables in the `keys.js`. This way the api key's information is hidden but still active.
 
 
 
-## *How liri-node-app works*
+## How liri-node-app works
 
 This is a working app that can do 3 things
 
-* spotify any song - search for a song and display it's information including the preview of the song
+* spotify any song - search for a song and display it's information including the preview of the   song
 * search for any movie and display details of the movie.
 
 * This app can also read a text file inside the app and do whatever is written in the file.
@@ -64,28 +64,29 @@ Type "node liri.js movie-this movieName" and click enter
 
 
 
-## *Link to github repository*
+## Link to github repository
 
-[github repository](https://github.com/Leostino/liri-node-app)
+   [github repository](https://github.com/Leostino/liri-node-app)
 
 
 
-## *Technologies*
+## Technologies
 
-1. Spotify api package for spotify-this-song feature [node-spotify-api package](https://www.npmjs.com/package/node-spotify-api)
+1. I used [node-spotify-api package](https://www.npmjs.com/package/node-spotify-api) to             spotify songs
 
-2. Axios package for movie-this feature [axios package](npm-install-axios)
+2. I used [axios package](npm-install-axios) to search for movies
 
-3. File system(fs) package to read the file random.txt and also write to log.txt
+3. I used File system(fs) package to read from the text file random.txt and also write or log       every activities of the app in log.txt file.
 
-4. `dotenv` package used to access the api keys stored in `.env` file. `.env` is one of the files in the `.gitignore` folder that's not uploaded to the repository. This is a security feature because it keeps api key's information hidden from the public [dotenv package](npm-install-dotenv)
+4. [dotenv package](npm-install-dotenv) was used to access the api keys stored in `.env` file.      `.env` is one of the files in the `.gitignore` folder that's not uploaded to the repository.     This is a security feature because it keeps api key's information hidden from the public
 
-5. Javascript require() to link all the packages and features together.
+5. I used Javascript to link all the packages and features together (javascript's require()).
+   I created 4 functions, for the 3 features of the app and 1 for the engine of the app.
 
 6. Git and Github to save and track different versions of the app [github repository](https://github.com/Leostino/liri-node-app)
 
 
 
-## *Role*
+## Role
 
-I developed this app
+ I developed this app.
